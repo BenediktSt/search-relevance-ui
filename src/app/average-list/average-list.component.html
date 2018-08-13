@@ -1,0 +1,8 @@
+<h1> Average Entries:</h1>
+<div *ngIf="averageEntries">
+  <ul>
+    <li *ngFor="let entry of averageEntries">
+      {{entry | json}}
+    </li>
+  </ul>
+</div>
