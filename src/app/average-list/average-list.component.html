@@ -1,8 +1,13 @@
 <h1> Average Entries:</h1>
-<div *ngIf="averageEntries">
-  <ul>
-    <li *ngFor="let entry of averageEntries">
-      {{entry | json}}
-    </li>
-  </ul>
-</div>
+<ng-container *ngIf="averageEntries">
+  <table>
+    <tr>
+      <th>Rang</th>
+      <th>Probability</th>
+    </tr>
+    <tr *ngFor="let entry of averageEntries">
+      <td>{{entry.rank}}</td>
+      <td>{{entry.probability}}</td>
+    </tr>
+  </table>
+</ng-container>

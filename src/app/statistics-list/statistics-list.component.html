@@ -1,0 +1,17 @@
+<h1>Statistical Entries:</h1>
+<ng-container *ngIf="statisticalEntries">
+  <table>
+    <tr>
+      <th>Suchwort</th>
+      <th>Statistics</th>
+    </tr>
+    <tr *ngFor="let key of keys">
+      <td>{{key}}</td>
+      <td>
+        <p *ngFor="let value of statisticalEntries.get(key)">
+          {{value.rank + ": " + value.probability}}
+        </p>
+      </td>
+    </tr>
+  </table>
+</ng-container>
