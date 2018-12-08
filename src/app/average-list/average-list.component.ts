@@ -10,6 +10,7 @@ import {Statistics} from '../model/Statistics';
 export class AverageListComponent implements OnInit {
 
   public averageEntries: Array<Statistics>;
+  columnsToDisplay = ['rank', 'probability'];
 
   constructor(
     private averageService: AverageService
