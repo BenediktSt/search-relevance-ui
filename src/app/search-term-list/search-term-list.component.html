@@ -5,11 +5,9 @@
       <th>SearchTerm</th>
       <th>Clicks</th>
     </tr>
-    <tr *ngFor="let key of keys">
-      <td>{{key}}</td>
-      <td>
-        {{searchTerms.get(key)}}
-      </td>
+    <tr *ngFor="let entry of searchTerms">
+      <td>{{entry.searchTerm}}</td>
+      <td>{{entry.count}}</td>
     </tr>
   </table>
 </ng-container>

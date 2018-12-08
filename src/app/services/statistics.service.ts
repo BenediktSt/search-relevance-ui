@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {AverageEntry} from '../average-list/AverageEntry';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {TrackingEntry} from '../model/TrackingEntry';
 
 @Injectable({
   providedIn: 'root'
@@ -29,18 +30,7 @@ export class StatisticsService {
       );
   }
 
-  getAllSearchTerms(): Observable<Map<string, number>> {
-    return this.http.get('http://localhost:8080/statistics/searchterms')
-      .pipe(
-        map(value => {
-          const resultMap: Map<string, number> = new Map();
-          for (const prop in value) {
-            if (value.hasOwnProperty(prop)) {
-              resultMap.set(prop, value[prop]);
-            }
-          }
-          return resultMap;
-        })
-      );
+  getAllSearchTerms(): Observable<Array<TrackingEntry>> {
+    return this.http.get<Array<TrackingEntry>>('http://localhost:8080/statistics/searchterms');
   }
 }

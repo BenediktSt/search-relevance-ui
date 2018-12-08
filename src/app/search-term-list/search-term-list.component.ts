@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {StatisticsService} from '../services/statistics.service';
+import {TrackingEntry} from '../model/TrackingEntry';
 
 @Component({
   selector: 'app-search-term-list',
@@ -8,8 +9,7 @@ import {StatisticsService} from '../services/statistics.service';
 })
 export class SearchTermListComponent implements OnInit {
 
-  searchTerms: Map<string, number>;
-  keys: Array<string>;
+  searchTerms: Array<TrackingEntry>;
 
   constructor(private statisticsService: StatisticsService) {}
 
@@ -19,10 +19,7 @@ export class SearchTermListComponent implements OnInit {
 
   getSearchTerms() {
     this.statisticsService.getAllSearchTerms()
-      .subscribe(entries => {
-        this.searchTerms = entries;
-        this.keys = Array.from(this.searchTerms.keys());
-      });
+      .subscribe(entries => this.searchTerms = entries);
   }
 
 }
