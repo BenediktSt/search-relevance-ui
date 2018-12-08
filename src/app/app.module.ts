@@ -9,13 +9,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AverageListComponent } from './average-list/average-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import { StatisticsListComponent } from './statistics-list/statistics-list.component';
+import { SearchTermListComponent } from './search-term-list/search-term-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     AverageListComponent,
-    StatisticsListComponent
+    StatisticsListComponent,
+    SearchTermListComponent
   ],
   imports: [
     BrowserModule,

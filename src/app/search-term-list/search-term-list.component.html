@@ -1,0 +1,15 @@
+<h1>Suchbegriffe:</h1>
+<ng-container *ngIf="searchTerms">
+  <table>
+    <tr>
+      <th>SearchTerm</th>
+      <th>Clicks</th>
+    </tr>
+    <tr *ngFor="let key of keys">
+      <td>{{key}}</td>
+      <td>
+        {{searchTerms.get(key)}}
+      </td>
+    </tr>
+  </table>
+</ng-container>

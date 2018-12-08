@@ -21,7 +21,22 @@ export class StatisticsService {
           const resultMap: Map<string, Array<AverageEntry>> = new Map();
           for (const prop in value) {
             if (value.hasOwnProperty(prop)) {
-              resultMap.set(prop, value[prop] as  Array<AverageEntry>);
+              resultMap.set(prop, value[prop] as Array<AverageEntry>);
+            }
+          }
+          return resultMap;
+        })
+      );
+  }
+
+  getAllSearchTerms(): Observable<Map<string, number>> {
+    return this.http.get('http://localhost:8080/statistics/searchterms')
+      .pipe(
+        map(value => {
+          const resultMap: Map<string, number> = new Map();
+          for (const prop in value) {
+            if (value.hasOwnProperty(prop)) {
+              resultMap.set(prop, value[prop]);
             }
           }
           return resultMap;

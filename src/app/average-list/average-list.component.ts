@@ -16,10 +16,10 @@ export class AverageListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.gerArverageEntries();
+    this.getArverageEntries();
   }
 
-  gerArverageEntries() {
+  getArverageEntries() {
     this.averageService.getAverageList()
       .subscribe(entries => this.averageEntries = entries);
   }
