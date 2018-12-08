@@ -1,15 +1,15 @@
 <h1>Statistical Entries:</h1>
-<ng-container *ngIf="statisticalEntries">
+<ng-container *ngIf="searchRankins">
   <table>
     <tr>
       <th>Suchwort</th>
       <th>Statistics</th>
     </tr>
-    <tr *ngFor="let key of keys">
-      <td>{{key}}</td>
+    <tr *ngFor="let entry of searchRankins">
+      <td>{{entry.searchTerm}}</td>
       <td>
-        <p *ngFor="let value of statisticalEntries.get(key)">
-          {{value.rank + ": " + value.probability}}
+        <p *ngFor="let rankings of entry.rankings">
+          {{rankings.rank + ": " + rankings.probability}}
         </p>
       </td>
     </tr>

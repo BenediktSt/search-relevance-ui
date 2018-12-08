@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AverageEntry} from './AverageEntry';
 import {AverageService} from '../services/average.service';
+import {Statistics} from '../model/Statistics';
 
 @Component({
   selector: 'app-average-list',
@@ -9,7 +9,7 @@ import {AverageService} from '../services/average.service';
 })
 export class AverageListComponent implements OnInit {
 
-  public averageEntries: Array<AverageEntry>;
+  public averageEntries: Array<Statistics>;
 
   constructor(
     private averageService: AverageService

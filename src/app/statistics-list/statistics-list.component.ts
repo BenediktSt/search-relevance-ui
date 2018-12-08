@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {StatisticsService} from '../services/statistics.service';
-import {AverageEntry} from '../average-list/AverageEntry';
+import {SearchRankins} from '../model/SearchRankins';
 
 @Component({
   selector: 'app-statistics-list',
@@ -9,8 +9,7 @@ import {AverageEntry} from '../average-list/AverageEntry';
 })
 export class StatisticsListComponent implements OnInit {
 
-  statisticalEntries: Map<string, Array<AverageEntry>>;
-  keys: Array<string>;
+  searchRankins: Array<SearchRankins>;
 
   constructor(
     private statisticalService: StatisticsService
@@ -23,24 +22,6 @@ export class StatisticsListComponent implements OnInit {
 
   private getAllStatisticsEntries() {
     this.statisticalService.getAllStatisticalEntries()
-      .subscribe(values => {
-        this.statisticalEntries = values;
-        this.keys = Array.from(this.statisticalEntries.keys());
-
-/*        for (const [key, value] of this.statisticalEntries) {
-          console.log(key + ' = ' + value);
-        }*/
-/*        for (const prop in this.statisticalEntries) {
-          console.log(prop + ': ' + (this.statisticalEntries[prop] as  Array<AverageEntry>).length);
-        }*/
-
-        /*        const map = new Map([
-                  ['APPLE', 1],
-                  ['ORANGE', 2],
-                  ['MANGO', 3]
-                ]);
-                console.log(typeof map);
-                console.log(map);*/
-      });
+      .subscribe(values => this.searchRankins = values);
   }
 }
