@@ -10,7 +10,7 @@ import {TrackingEntry} from '../model/TrackingEntry';
 export class SearchTermListComponent implements OnInit {
 
   searchTerms: Array<TrackingEntry>;
-  columnsToDisplay = ['searchTerm', 'entryCount'];
+  columnsToDisplay = ['searchTerm', 'entryCount', 'linkout'];
 
   constructor(private statisticsService: StatisticsService) {}
 

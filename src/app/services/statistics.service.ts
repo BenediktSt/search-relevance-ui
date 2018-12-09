@@ -16,6 +16,10 @@ export class StatisticsService {
     return this.http.get<Array<SearchRankins>>('http://localhost:8080/statistics/all');
   }
 
+  getStatisticsBySearchTerm(searchterm: string): Observable<SearchRankins> {
+    return this.http.get<SearchRankins>('http://localhost:8080/statistics/' + searchterm);
+  }
+
   getAllSearchTerms(): Observable<Array<TrackingEntry>> {
     return this.http.get<Array<TrackingEntry>>('http://localhost:8080/statistics/searchterms');
   }
